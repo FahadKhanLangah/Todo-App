@@ -14,19 +14,20 @@ function App() {
     localStorage.setItem("myTodos", JSON.stringify(updatedTodos));
   }
   const updateToggle = (id) => {
-    setTodos(todos.map((v) => (v.id === id) ? { ...v, completed: !v.completed } : v))
+    setTodos(todos?.map((v) => (v.id === id) ? { ...v, completed: !v.completed } : v))
   }
   const updateTodoMsg = (id, msg) => {
-    setTodos(todos.map(todo => todo.id === id ? { ...todo, name: msg } : todo))
+    setTodos(todos?.map(todo => todo.id === id ? { ...todo, name: msg } : todo))
   }
   const store = {
     addTodo, setTodos, todos, updateToggle, deletedTodo, updateTodoMsg
   }
   useEffect(() => {
-    setTodos(JSON.parse(localStorage.getItem("myTodos")));
+    const storedTodos = JSON.parse(localStorage.getItem("myTodos"));
+    setTodos(storedTodos ? storedTodos : []);
   }, [])
   useEffect(() => {
-    if (todos.length > 0) {
+    if (todos?.length > 0) {
       localStorage.setItem("myTodos", JSON.stringify(todos));
     }
   }, [todos]);
