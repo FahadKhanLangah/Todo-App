@@ -34,10 +34,10 @@ function App() {
   return (
     <>
       <TodoContext.Provider value={store}>
-        <div className='flex flex-col gap-4 justify-center items-center'>
+        <div className='flex flex-col gap-4 justify-center items-center px-6'>
           <h1 className='font-bold text-3xl mb-10'>Here is your Todo`s</h1>
           <AddToDoBtn />
-          <div className='flex flex-col w-96 gap-4 '>
+          <div className='flex flex-col w-96 gap-4 px-4'>
             {todos.length > 0 ? <TodoList /> :
               <h2 className='mt-10'>Have a good Day !</h2>
             }

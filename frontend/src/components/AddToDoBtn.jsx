@@ -14,8 +14,8 @@ const AddToDoBtn = () => {
     setName("");
   }
   return (
-    <form onSubmit={handleSubmit} className='flex w-96 pl-3 h-12 justify-between rounded-xl bg-slate-800 items-center'>
-      <input value={name} onChange={(e) => setName(e.target.value)} className='bg-transparent outline-none' type="text" placeholder='Add new Todo' />
+    <form onSubmit={handleSubmit} className='flex sm:w-96 max-w-96 min-w-[22rem] h-12 justify-between rounded-xl bg-slate-800 items-center'>
+      <input value={name} onChange={(e) => setName(e.target.value)} className='bg-transparent outline-none px-3' type="text" placeholder='Add new Todo' />
       <button type='submit' className='bg-green-600 h-12 w-20 font-semibold rounded-r-xl'>Add </button>
     </form>
   )

@@ -4,13 +4,13 @@ import { TodoContext } from '../context/TodoContext';
 const TodoList = () => {
   const { todos, updateToggle, deletedTodo, updateTodoMsg } = useContext(TodoContext);
   
-  const [editTodoId, setEditTodoId] = useState(null); // Track which todo is being edited
-  const [todoMsg, setTodoMsg] = useState(""); // Store message for updating
+  const [editTodoId, setEditTodoId] = useState(null);
+  const [todoMsg, setTodoMsg] = useState(""); 
 
   const handleUpdateTodo = (e, id) => {
     e.preventDefault();
     updateTodoMsg(id, todoMsg);
-    setEditTodoId(null); // Exit edit mode after updating
+    setEditTodoId(null);
     setTodoMsg("");
   };
 
@@ -30,13 +30,13 @@ const TodoList = () => {
                 autoFocus
               />
             ) : (
-              <h2 className={`bg-transparent ${v.completed ? 'line-through opacity-25' : ''}`}>{v.name}</h2>
+              <h2 className={`bg-transparent px-2 ${v.completed ? 'line-through opacity-25' : ''}`}>{v.name}</h2>
             )}
           </form>
 
           <div className='flex gap-4 bg-transparent'>
             {editTodoId === v.id ? (
-              <button type='submit' className='px-3 hover:bg-fuchsia-800 font-semibold bg-fuchsia-500 rounded'>
+              <button onClick={e=>handleUpdateTodo(e,v.id)} className='px-3 ml-1 z-20 hover:bg-fuchsia-800 font-semibold bg-fuchsia-500 rounded'>
                 Update
               </button>
             ) : (
